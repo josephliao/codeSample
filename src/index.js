@@ -1,17 +1,40 @@
-import React from 'react';
+import React,{memo} from 'react';
 import ReactDOM from 'react-dom';
+import {useInputValue, useTodos} from './test-hooks';
+import Layout from './components/Layout';
+import Wrapper from './components/Wrapper';
+import ListContainer from './components/ListContainer';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+const TodoApp = memo((props) => {
+  const { inputValue, changeInput, clearInput, keyInput } = useInputValue();
+  const { todos, addTodo, checkTodo, removeTodo } = useTodos();
+
+  const clearInputAndAddTodo = (_) => {
+    clearInput();
+    addTodo(inputValue);
+  };
+
+  return (
+    <Layout>
+      <Wrapper
+        inputValue={inputValue}
+        onInputChange={changeInput}
+        onButtonClick={clearInputAndAddTodo}
+        onInputKeyPress={(event) => keyInput(event, clearInputAndAddTodo)}
+      />
+      <ListContainer
+        items={todos}
+        onItemCheck={(index) => checkTodo(index)}
+        onItemRemove={(index) => removeTodo(index)}
+      />
+    </Layout>
+  );
+});
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<TodoApp />, rootElement);
+
 reportWebVitals();

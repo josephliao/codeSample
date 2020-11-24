@@ -1,0 +1,15 @@
+@import 'core.scss';
+
+.Wrapper{
+    width: calc(100% - 20px);
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 25% auto 25%;
+    margin: 0 auto;
+    .customInput{
+        margin: 20px 0 0 0;
+    }
+    button{
+        margin: 50px 0 0 0;
+    }
+}

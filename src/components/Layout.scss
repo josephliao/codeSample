@@ -1,0 +1,27 @@
+@import 'core.scss';
+
+a{ 
+    color: var(--c-white);
+    text-decoration: none;
+    #titleWrapper{
+        &.MuiTypography-body1{
+            line-height: 30px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            svg{
+                border: solid 2px var(--c-white);
+                border-radius: 15px;
+                color: var(--c-white);
+                position: relative;
+                top: 5px;
+            }
+            &:hover{
+                color: var(--c-red);
+                svg{
+                    color: var(--c-red);
+                    border-color: var(--c-red);
+                }
+            }
+        }
+    }
+}
