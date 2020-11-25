@@ -16,7 +16,7 @@
     "react-scripts": "4.0.0",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "https://josephliao.github.io/React-Code-Sample",
+  "homepage": "https://josephliao.github.io/codeSample",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
