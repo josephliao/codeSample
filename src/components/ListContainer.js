@@ -1,4 +1,4 @@
-import { List, Paper, Grid } from "@material-ui/core";
+import { List, Paper} from "@material-ui/core";
 import React,{memo} from "react";
 import './ListContainer.scss';
 import TDListItem from "./TDListItem";
